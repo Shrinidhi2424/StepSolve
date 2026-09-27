@@ -51,8 +51,8 @@ def test_topic_not_found():
 
 
 def test_solve_stub_returns_501():
-    # Calling secant_method stub before Phase 1 should return 501 Not Implemented
-    response = client.post("/api/solve/secant_method", json={})
+    # Calling an un-implemented stub (e.g. fixed_point_iteration before Phase 2) returns 501
+    response = client.post("/api/solve/fixed_point_iteration", json={})
     assert response.status_code == 501
     assert "not yet implemented" in response.json()["detail"].lower()
 
