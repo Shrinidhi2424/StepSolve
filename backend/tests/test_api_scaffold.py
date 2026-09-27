@@ -51,8 +51,8 @@ def test_topic_not_found():
 
 
 def test_solve_stub_returns_501():
-    # Calling an un-implemented stub (e.g. fixed_point_iteration before Phase 2) returns 501
-    response = client.post("/api/solve/fixed_point_iteration", json={})
+    # Calling an un-implemented stub (e.g. euler_method before Phase 4) returns 501
+    response = client.post("/api/solve/euler_method", json={})
     assert response.status_code == 501
     assert "not yet implemented" in response.json()["detail"].lower()
 
