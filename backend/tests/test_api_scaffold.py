@@ -50,11 +50,16 @@ def test_topic_not_found():
     assert response.status_code == 404
 
 
-def test_solve_stub_returns_501():
-    # Calling an un-implemented stub (e.g. heat_equation_explicit in Phase 5) returns 501
-    response = client.post("/api/solve/heat_equation_explicit", json={})
-    assert response.status_code == 501
-    assert "not yet implemented" in response.json()["detail"].lower()
+def test_all_15_topics_implemented_no_501():
+    # In Phase 5, all 15 topics have live implementations (zero 501 stubs remaining)
+    for topic_id, item in TOPICS.items():
+        defaults = {field["name"]: field["default"] for field in item["input_schema"]}
+        response = client.post(f"/api/solve/{topic_id}", json=defaults)
+        assert response.status_code == 200, f"Topic {topic_id} failed with {response.status_code}: {response.text}"
+        data = response.json()
+        assert data["topic_id"] == topic_id
+        assert "steps" in data
+        assert len(data["steps"]) > 0
 
 
 def test_expr_eval_safe_functions():
