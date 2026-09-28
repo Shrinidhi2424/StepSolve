@@ -51,8 +51,8 @@ def test_topic_not_found():
 
 
 def test_solve_stub_returns_501():
-    # Calling an un-implemented stub (e.g. euler_method before Phase 4) returns 501
-    response = client.post("/api/solve/euler_method", json={})
+    # Calling an un-implemented stub (e.g. heat_equation_explicit in Phase 5) returns 501
+    response = client.post("/api/solve/heat_equation_explicit", json={})
     assert response.status_code == 501
     assert "not yet implemented" in response.json()["detail"].lower()
 
