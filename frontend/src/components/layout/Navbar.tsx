@@ -13,10 +13,19 @@ export function Navbar() {
             <Calculator className="h-5 w-5 text-white" />
           </div>
           <div>
-            <span className="text-xl font-bold tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
-              StepSolve
-            </span>
-            <span className="ml-2 rounded-md bg-indigo-500/10 px-2 py-0.5 text-[10px] font-semibold tracking-wider text-indigo-400 border border-indigo-500/20">
+            <div className="flex items-center gap-1.5">
+              <span className="text-xl font-bold tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
+                StepSolve
+              </span>
+              <div className="flex items-center gap-1 ml-1" title="Modules 1 to 5 Active">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#6d6af8]" />
+                <span className="h-1.5 w-1.5 rounded-full bg-[#2dd4bf]" />
+                <span className="h-1.5 w-1.5 rounded-full bg-[#fb923c]" />
+                <span className="h-1.5 w-1.5 rounded-full bg-[#f472b6]" />
+                <span className="h-1.5 w-1.5 rounded-full bg-[#34d399]" />
+              </div>
+            </div>
+            <span className="rounded-md bg-indigo-500/10 px-1.5 py-0.5 text-[9px] font-semibold tracking-wider text-indigo-400 border border-indigo-500/20">
               NUMERICAL METHODS
             </span>
           </div>
